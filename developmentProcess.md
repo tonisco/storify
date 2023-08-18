@@ -5,3 +5,4 @@
 ```
 
 2. Added some rules to tsconfig.
+3. Set up eslint and prettier for additional code checking for syntax error, potential errors, code best practices and code formatting.
