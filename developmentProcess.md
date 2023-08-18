@@ -13,5 +13,8 @@ npx expo run:android
 ```
 
 5. Installed React Navigation for screen navigation and set it up with two screens:
+
    - Product List Screen
    - Product Details Screen
+
+6. Created mock data and got images for mock data
