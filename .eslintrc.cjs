@@ -41,6 +41,7 @@ module.exports = {
     },
   ],
   rules: {
+    "@typescript-eslint/ban-types": "warn",
     "simple-import-sort/imports": "warn",
     "simple-import-sort/exports": "warn",
     "import/first": "warn",
@@ -59,4 +60,4 @@ module.exports = {
     "babel.config.js",
     "tailwind.config.js",
   ],
-};
+}
