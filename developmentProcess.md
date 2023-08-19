@@ -17,4 +17,5 @@ npx expo run:android
    - Product List Screen
    - Product Details Screen
 
-6. Created mock data and got images for mock data
+6. Created mock data and got images for mock data.
+7. Added open sans font

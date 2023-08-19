@@ -996,7 +996,7 @@
     "@babel/helper-create-regexp-features-plugin" "^7.22.5"
     "@babel/helper-plugin-utils" "^7.22.5"
 
-"@babel/preset-env@^7.20.0":
+"@babel/preset-env@^7.20.0", "@babel/preset-env@^7.22.10":
   version "7.22.10"
   resolved "https://registry.yarnpkg.com/@babel/preset-env/-/preset-env-7.22.10.tgz#3263b9fe2c8823d191d28e61eac60a79f9ce8a0f"
   integrity sha512-riHpLb1drNkpLlocmSyEg4oYJIQFeXAK/d7rI6mbD0XsvoTOOweXDmQPG/ErxsEhWk3rl3Q/3F6RFQlVFS8m0A==
@@ -3830,7 +3830,7 @@ expo-keep-awake@~12.3.0:
   resolved "https://registry.yarnpkg.com/expo-keep-awake/-/expo-keep-awake-12.3.0.tgz#c42449ae19c993274ddc43aafa618792b6aec408"
   integrity sha512-ujiJg1p9EdCOYS05jh5PtUrfiZnK0yyLy+UewzqrjUqIT8eAGMQbkfOn3C3fHE7AKd5AefSMzJnS3lYZcZYHDw==
 
-expo-modules-autolinking@1.5.0:
+expo-modules-autolinking@1.5.0, expo-modules-autolinking@~1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/expo-modules-autolinking/-/expo-modules-autolinking-1.5.0.tgz#64d6ea4fd77ba2d578dd5c98af0a7630e30f2be3"
   integrity sha512-i9zll5xNYh0/sjaa6hpZlTHodKEu2tMEFsJJYsfBMTt8G9J8gGhalOydrX/Ql1E8bQ4GxnLAqrM7duR0Tj2VTQ==
