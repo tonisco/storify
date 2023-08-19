@@ -3,6 +3,7 @@ module.exports = {
   extends: [
     "universe/native",
     "universe/shared/typescript-analysis",
+    "@react-native",
     "prettier",
   ],
   plugins: ["simple-import-sort"],
@@ -41,6 +42,8 @@ module.exports = {
     },
   ],
   rules: {
+    "import/order": "off",
+    "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/ban-types": "warn",
     "simple-import-sort/imports": "warn",
     "simple-import-sort/exports": "warn",
