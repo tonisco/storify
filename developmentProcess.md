@@ -18,4 +18,5 @@ npx expo run:android
    - Product Details Screen
 
 6. Created mock data and got images for mock data.
-7. Added open sans font
+7. Added open sans font.
+8. Added react native paper for ui components and moved navigation its own folder to keep the App file for future providers and state management.

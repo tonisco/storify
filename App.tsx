@@ -2,10 +2,9 @@ import React, { useCallback } from "react"
 import { useFonts } from "expo-font"
 import * as SplashScreen from "expo-splash-screen"
 import { View } from "react-native"
+import { PaperProvider } from "react-native-paper"
 
-import { NavigationContainer } from "@react-navigation/native"
-
-import ProductNavigator from "./navigators/ProductNavigator"
+import Navigation from "./Navigation"
 
 SplashScreen.preventAutoHideAsync()
 
@@ -30,9 +29,9 @@ export default function App() {
   return (
     // eslint-disable-next-line react-native/no-inline-styles
     <View onLayout={onLayoutRootView} style={{ flex: 1 }}>
-      <NavigationContainer>
-        <ProductNavigator />
-      </NavigationContainer>
+      <PaperProvider>
+        <Navigation />
+      </PaperProvider>
     </View>
   )
 }
