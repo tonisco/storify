@@ -2,9 +2,9 @@ import React from "react"
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 
+import { ProductScreenType } from "../../types/screenTypes"
 import ProductDetailsScreen from "../screens/ProductDetailsScreen"
 import ProductListScreen from "../screens/ProductListScreen"
-import { ProductScreenType } from "../types/screenTypes"
 
 const Navigator = createNativeStackNavigator<ProductScreenType>()
 

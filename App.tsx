@@ -3,9 +3,9 @@ import { useFonts } from "expo-font"
 import * as SplashScreen from "expo-splash-screen"
 import { useColorScheme, View } from "react-native"
 
-import ThemeProvider from "./context/ThemeContext"
-import PaperThemeProvider from "./theme/PaperThemeProvider"
-import Navigation from "./Navigation"
+import ThemeProvider from "./src/context/ThemeContext"
+import Navigation from "./src/Navigation"
+import PaperThemeProvider from "./src/theme/PaperThemeProvider"
 
 SplashScreen.preventAutoHideAsync()
 
