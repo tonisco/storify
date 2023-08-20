@@ -11,10 +11,10 @@ SplashScreen.preventAutoHideAsync()
 
 export default function App() {
   const [fontLoaded] = useFonts({
-    "font-regular": require("./assets/fonts/OpenSans-Regular.ttf"),
-    "font-medium": require("./assets/fonts/OpenSans-Medium.ttf"),
-    "font-semibold": require("./assets/fonts/OpenSans-SemiBold.ttf"),
-    "font-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
+    "sans-regular": require("./assets/fonts/OpenSans-Regular.ttf"),
+    "sans-medium": require("./assets/fonts/OpenSans-Medium.ttf"),
+    "sans-semibold": require("./assets/fonts/OpenSans-SemiBold.ttf"),
+    "sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
   })
 
   const colorScheme = useColorScheme()

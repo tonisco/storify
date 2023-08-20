@@ -21,3 +21,5 @@ npx expo run:android
 7. Added open sans font.
 8. Added react native paper for ui components and moved navigation its own folder to keep the App file for future providers and state management.
 9. Edited theme to include default colors and added light and dark mode option.
+10. Moved all components and folders into newly created src directory.
+11. Installed tailwind react native component and configure for quicker styling.
