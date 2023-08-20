@@ -2,12 +2,12 @@ import React from "react"
 
 import { NavigationContainer } from "@react-navigation/native"
 
-import ProductNavigator from "./ProductNavigator"
+import MainNavigator from "./MainNavigator"
 
 const Navigation = () => {
   return (
     <NavigationContainer>
-      <ProductNavigator />
+      <MainNavigator />
     </NavigationContainer>
   )
 }

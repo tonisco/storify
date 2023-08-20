@@ -9,7 +9,6 @@ import tw from "../lib/tailwind"
 import ProductDetailsScreen from "../screens/ProductDetailsScreen"
 
 import HomeNavigator from "./HomeNaviagtor"
-import ProductListScreen from "../screens/ProductListScreen"
 
 const Tab = createMaterialBottomTabNavigator<MainTabType>()
 
@@ -22,7 +21,7 @@ const MainNavigator = () => {
     >
       <Tab.Screen
         name="Main"
-        component={ProductListScreen}
+        component={HomeNavigator}
         options={{
           title: "Home",
           tabBarIcon({ focused }) {
