@@ -33,5 +33,9 @@ npx expo run:android
     - Cart
     - Orders
 16. Main tab created with two screens
+
     - Home
     - Categories
+
+17. Created Home screen with different sections which have their components for reusability, edited product card to use data passed from props and other utils and methods.
+18. Created a Category screen, listed all the categories using the categories card component and add route from the home page to the category list

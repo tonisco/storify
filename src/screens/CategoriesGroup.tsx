@@ -1,5 +1,5 @@
 import React from "react"
-import { FlatList, Text, View } from "react-native"
+import { FlatList, Pressable, Text, View } from "react-native"
 
 import { MaterialIcons } from "@expo/vector-icons"
 
@@ -10,9 +10,10 @@ import tw from "../lib/tailwind"
 
 type Props = {
   groupByCategory: GroupByCategory
+  allCategories?: () => void
 }
 
-const CategoriesGroup = ({ groupByCategory }: Props) => {
+const CategoriesGroup = ({ groupByCategory, allCategories }: Props) => {
   return (
     <View style={tw`gap-2`}>
       <View style={tw`flex-row justify-between`}>
@@ -21,7 +22,10 @@ const CategoriesGroup = ({ groupByCategory }: Props) => {
         >
           Categories
         </Text>
-        <View style={tw`flex-row items-center`}>
+        <Pressable
+          style={tw`flex-row items-center`}
+          onPress={() => allCategories && allCategories()}
+        >
           <Text
             style={tw`font-sans-regular text-sm text-brandGray dark:text-darkBrandGray`}
           >
@@ -31,7 +35,7 @@ const CategoriesGroup = ({ groupByCategory }: Props) => {
             name="chevron-right"
             style={tw`font-sans-regular text-lg text-brandGray dark:text-darkBrandGray`}
           />
-        </View>
+        </Pressable>
       </View>
       <FlatList
         data={Object.keys(groupByCategory)}

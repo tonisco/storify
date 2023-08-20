@@ -10,7 +10,7 @@ const CategoryCard = ({ category, total }: Props) => {
   return (
     <View>
       <Image
-        style={tw`h-32 w-32 rounded-lg`}
+        style={tw`h-32 w-40 rounded-lg`}
         source={categoriesImage[category]}
       />
       <View style={tw`gap-1 px-1`}>

@@ -1,15 +1,19 @@
-import React, { useMemo } from "react"
+import React, { useCallback, useMemo } from "react"
 import { ScrollView, Text, View } from "react-native"
+
 import products from "../../../data/products"
 import { GroupByCategory, Products } from "../../../types/main"
 import { getPercentDiscount } from "../../utils/methods"
 import tw from "../../lib/tailwind"
 import GroupProducts from "../GroupProducts"
 import CategoriesGroup from "../CategoriesGroup"
+import { HomeScreenProps } from "../../../types/screenTypes"
 
-type Props = object
+type Props = HomeScreenProps
 
-const ProductListScreen = (props: Props) => {
+const ProductListScreen = ({ navigation }: Props) => {
+  const allCategories = useCallback(() => navigation.navigate("Categories"), [])
+
   // TODO: reduce number rendered
   const groupByCategory = useMemo(
     () =>
@@ -83,7 +87,10 @@ const ProductListScreen = (props: Props) => {
             Find your best products at your fingers
           </Text>
         </View>
-        <CategoriesGroup groupByCategory={groupByCategory} />
+        <CategoriesGroup
+          groupByCategory={groupByCategory}
+          allCategories={allCategories}
+        />
         <GroupProducts items={sale} title="Sale" subtitle="Super Summer Sale" />
         <GroupProducts
           items={newItems}
