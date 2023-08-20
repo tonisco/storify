@@ -23,4 +23,6 @@ npx expo run:android
 9. Edited theme to include default colors and added light and dark mode option.
 10. Moved all components and folders into newly created src directory.
 11. Installed tailwind react native component and configure for quicker styling.
-12. Created product card component since it will be used through out the app
+12. Created product card component since it will be used through out the app.
+13. Decided to create more functionalities like cart, wishlist and orders.
+14. Installed bottom tab navigator.
