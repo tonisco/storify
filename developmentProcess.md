@@ -26,3 +26,12 @@ npx expo run:android
 12. Created product card component since it will be used through out the app.
 13. Decided to create more functionalities like cart, wishlist and orders.
 14. Installed bottom tab navigator.
+15. Design tab bar for all possible screens.
+    - Main/Home
+    - Explore
+    - Favorite
+    - Cart
+    - Orders
+16. Main tab created with two screens
+    - Home
+    - Categories
