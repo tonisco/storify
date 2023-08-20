@@ -11,7 +11,7 @@ import { HomeScreenProps } from "../../../types/screenTypes"
 
 type Props = HomeScreenProps
 
-const ProductListScreen = ({ navigation }: Props) => {
+const HomeScreen = ({ navigation }: Props) => {
   const allCategories = useCallback(() => navigation.navigate("Categories"), [])
 
   // TODO: reduce number rendered
@@ -72,7 +72,6 @@ const ProductListScreen = ({ navigation }: Props) => {
   return (
     <ScrollView
       style={tw`bg-brandBackground dark:bg-darkBrandBackground px-4 pt-6 pb-10`}
-      contentContainerStyle={tw``}
     >
       <View style={tw`mb-8 gap-6`}>
         <View>
@@ -108,4 +107,4 @@ const ProductListScreen = ({ navigation }: Props) => {
   )
 }
 
-export default ProductListScreen
+export default HomeScreen

@@ -8,6 +8,7 @@ import { MainTabType } from "../../types/screenTypes"
 import tw from "../lib/tailwind"
 import ProductDetailsScreen from "../screens/ProductDetailsScreen"
 
+import ExploreNavigator from "./ExploreNavigator"
 import HomeNavigator from "./HomeNaviagtor"
 
 const Tab = createMaterialBottomTabNavigator<MainTabType>()
@@ -41,7 +42,7 @@ const MainNavigator = () => {
       />
       <Tab.Screen
         name="Explore"
-        component={ProductDetailsScreen}
+        component={ExploreNavigator}
         options={{
           tabBarIcon({ focused }) {
             return (

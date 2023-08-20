@@ -32,7 +32,7 @@ const CategoriesScreen = (props: Props) => {
       )}
       keyExtractor={(item) => item}
       showsHorizontalScrollIndicator={false}
-      contentContainerStyle={tw`gap-4 px-4 py-6`}
+      contentContainerStyle={tw`gap-4 bg-brandBackground dark:bg-darkBrandBackground px-4 pt-6 pb-10`}
       columnWrapperStyle={tw`gap-4`}
       numColumns={2}
     />

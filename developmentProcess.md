@@ -38,4 +38,8 @@ npx expo run:android
     - Categories
 
 17. Created Home screen with different sections which have their components for reusability, edited product card to use data passed from props and other utils and methods.
-18. Created a Category screen, listed all the categories using the categories card component and add route from the home page to the category list
+18. Created a Category screen, listed all the categories using the categories card component and add route from the home page to the category list.
+19. Created 3 screen for explore tab
+    - Product List
+    - Product Details
+    - Product Filter

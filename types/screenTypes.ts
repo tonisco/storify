@@ -8,7 +8,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack"
 
 export type MainTabType = {
   Main: NavigatorScreenParams<HomeScreenType>
-  Explore: undefined
+  Explore: NavigatorScreenParams<ExploreScreenType>
   Cart: undefined
   Favorite: undefined
   Orders: undefined
@@ -17,6 +17,11 @@ export type MainTabType = {
 export type HomeScreenType = {
   Home: undefined
   Categories: undefined
+}
+export type ExploreScreenType = {
+  ProductList: undefined
+  ProductDetails: { id: string }
+  ProductFilter: undefined
 }
 export type ProductScreenType = {
   ProductList: undefined
@@ -32,12 +37,15 @@ export type CategoriesScreenProps = CompositeScreenProps<
   NativeStackScreenProps<HomeScreenType, "Categories">,
   MaterialBottomTabScreenProps<MainTabType>
 >
-
-export type ProductListScreenProps = NativeStackScreenProps<
-  ProductScreenType,
-  "ProductList"
+export type ProductListScreenProps = CompositeScreenProps<
+  NativeStackScreenProps<ExploreScreenType, "ProductList">,
+  MaterialBottomTabScreenProps<MainTabType>
 >
-export type ProductDetailsScreenProps = NativeStackScreenProps<
-  ProductScreenType,
-  "ProductDetails"
+export type ProductDetailsScreenProps = CompositeScreenProps<
+  NativeStackScreenProps<ExploreScreenType, "ProductDetails">,
+  MaterialBottomTabScreenProps<MainTabType>
+>
+export type ProductFilterScreenProps = CompositeScreenProps<
+  NativeStackScreenProps<ExploreScreenType, "ProductFilter">,
+  MaterialBottomTabScreenProps<MainTabType>
 >
