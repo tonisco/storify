@@ -1,73 +1,110 @@
-import React, { useMemo } from "react"
-import { ScrollView, Text, View } from "react-native"
+import React, { useCallback, useEffect, useState } from "react"
+
 import products from "../../../data/products"
-import { GroupByCategory, Products } from "../../../types/main"
+import { ProductListScreenProps } from "../../../types/screenTypes"
 import { getPercentDiscount } from "../../utils/methods"
-import tw from "../../lib/tailwind"
-import CategoriesGroup from "../CategoriesGroup"
-import GroupProducts from "../GroupProducts"
 
-type Props = object
+import ProductListComponent from "./ProductListComponent"
 
-const ProductListScreen = (props: Props) => {
-  const groupByCategory = useMemo(
-    () =>
-      products.reduce((prev, curr) => {
-        const { category } = curr
-        if (!prev[category]) prev[category] = []
-        prev[category].push(curr)
-        return prev
-      }, {} as GroupByCategory),
-    [],
+type Props = ProductListScreenProps
+
+const sort = [
+  "Newest",
+  "Ratings",
+  "Discount",
+  "Price: Lowest To Highest",
+  "Price: Highest To Lowest",
+] as const
+
+const ProductListScreen = ({ navigation, route }: Props) => {
+  const { params } = route
+
+  const filterProducts = useCallback(() => {
+    let newProducts = products
+
+    if (params?.categories && params.categories?.length > 0) {
+      newProducts = newProducts.filter(
+        (item) => params.categories?.includes(item.category),
+      )
+    }
+
+    if (params?.genders && params.genders.length) {
+      newProducts = newProducts.filter(
+        (item) => params.genders?.includes(item.gender),
+      )
+    }
+
+    if (params?.ratings && params.ratings.length) {
+      newProducts = newProducts.filter(
+        (item) => item.average_rating > Math.min(...(params.ratings ?? [0])),
+      )
+    }
+
+    if (params?.price && params.price.length > 2) {
+      newProducts = newProducts.filter(
+        (item) =>
+          item.price >= params.price![0] && item.price <= params.price![1],
+      )
+    }
+
+    return newProducts
+  }, [params])
+
+  const [sortBy, setSortBy] = useState<(typeof sort)[number]>("Newest")
+
+  // sorts according to change in sortBy
+  const sortedProduct = useCallback(
+    (data: typeof products) => {
+      switch (sortBy) {
+        case "Newest":
+          return data.sort((a, b) => a.id - b.id)
+        case "Price: Highest To Lowest":
+          return data.sort((a, b) => b.price - a.price)
+        case "Price: Lowest To Highest":
+          return data.sort((a, b) => a.price - b.price)
+        case "Discount":
+          return data.sort(
+            (a, b) =>
+              getPercentDiscount(b.discount, b.price) -
+              getPercentDiscount(a.discount, a.price),
+          )
+        case "Ratings":
+          return data.sort((a, b) => b.average_rating - a.average_rating)
+      }
+    },
+    [sortBy],
   )
 
-  const sale = useMemo(
-    () =>
-      products
-        .sort(
-          (a, b) =>
-            getPercentDiscount(b.discount, b.price) -
-            getPercentDiscount(a.discount, a.price),
-        )
-        .reduce((prev, curr) => {
-          if (curr.discount && prev.length < 6) {
-            prev.push(curr)
-          }
-          return prev
-        }, [] as Products),
-    [],
-  )
+  const [length, setLength] = useState(10)
+  const [productData, setProductData] = useState<typeof products>([])
+  const [hasMore, setHasMore] = useState(true)
 
-  const newItems = useMemo(
-    () =>
-      products
-        .sort((a, b) => b.id - a.id)
-        .reduce((prev, curr) => {
-          if (prev.length < 6) {
-            prev.push(curr)
-          }
-          return prev
-        }, [] as Products),
-    [],
-  )
+  const loadMore = async () => {
+    setLength(length + 10)
+  }
 
-  const topRated = useMemo(
-    () =>
-      products
-        .sort((a, b) => b.average_rating - a.average_rating)
-        .reduce((prev, curr) => {
-          if (prev.length < 6) {
-            prev.push(curr)
-          }
-          return prev
-        }, [] as Products),
-    [],
-  )
+  useEffect(() => {
+    let filter = filterProducts()
+    let sorted = sortedProduct(filter)
+    setProductData(sorted.slice(0, length))
+    if (filter.length >= length + 1) {
+      setHasMore(true)
+    } else setHasMore(false)
+  }, [filterProducts, sortedProduct, length])
+
+  const goToFilter = () => {
+    navigation.navigate("ProductFilter", { ...params })
+  }
 
   return (
-    <ScrollView
-      style={tw`bg-brandBackground dark:bg-darkBrandBackground px-4 pt-6 pb-10`}
-    ></ScrollView>
+    <ProductListComponent
+      hasMore={hasMore}
+      loadMore={loadMore}
+      productData={productData}
+      goToFilter={goToFilter}
+      setSortBy={setSortBy}
+      sortBy={sortBy}
+    />
   )
 }
 

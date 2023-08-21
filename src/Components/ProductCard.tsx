@@ -19,15 +19,15 @@ const ProductCard = ({ product, tag }: Props) => {
 
   return (
     <View
-      style={tw`w-44 relative self-stretch overflow-hidden bg-brandBackground shadow-none dark:bg-brandBackground`}
+      style={tw`relative z-0 self-stretch overflow-hidden shadow-none w-44 bg-brandBackground dark:bg-brandBackground`}
     >
       <Image
         source={product.image as unknown as ImageProps}
-        style={tw`h-48 w-full rounded-lg`}
+        style={tw`w-full h-48 rounded-lg`}
         resizeMode="cover"
       />
-      <View style={tw`gap-1 mt-2 pb-4 px-2 shadow-none`}>
-        <View style={tw`flex-row gap-1 items-center`}>
+      <View style={tw`gap-1 px-2 pb-4 mt-2 shadow-none`}>
+        <View style={tw`flex-row items-center gap-1`}>
           <Stars rating={product.average_rating} />
           <Text
             style={tw`text-xs font-sans-regular text-brandGray dark:text-darkBrandGray`}
@@ -43,26 +43,26 @@ const ProductCard = ({ product, tag }: Props) => {
         <Text
           ellipsizeMode="tail"
           numberOfLines={2}
-          style={tw`text-base h-12 font-sans-bold uppercase text-brandDark dark:text-darkBrandWhite`}
+          style={tw`h-12 text-base uppercase font-sans-bold text-brandDark dark:text-darkBrandWhite`}
         >
           {product.name}
         </Text>
         {product.discount ? (
           <View style={tw`flex-row items-center gap-2 mt-auto`}>
             <Text
-              style={tw`font-sans-bold text-sm text-brandGray dark:text-darkBrandGray line-through`}
+              style={tw`text-sm line-through font-sans-bold text-brandGray dark:text-darkBrandGray`}
             >
               ${product.price}
             </Text>
             <Text
-              style={tw`font-sans-bold text-sm text-brandSale dark:text-darkBrandSale`}
+              style={tw`text-sm font-sans-bold text-brandSale dark:text-darkBrandSale`}
             >
               ${(product.price - product.discount).toFixed(2)}
             </Text>
           </View>
         ) : (
           <Text
-            style={tw`font-sans-bold text-sm text-brandDark dark:text-darkBrandDark`}
+            style={tw`text-sm font-sans-bold text-brandDark dark:text-darkBrandDark`}
           >
             ${product.price}
           </Text>
@@ -83,11 +83,11 @@ const ProductCard = ({ product, tag }: Props) => {
         </Text>
       ) : null}
       <View
-        style={tw`bg-brandWhite items-center justify-center dark:bg-darkBrandDark absolute px-2 py-1 top-2 right-2 rounded-full`}
+        style={tw`absolute items-center justify-center px-2 py-1 rounded-full bg-brandWhite dark:bg-darkBrandDark top-2 right-2`}
       >
         <Ionicons
           name="heart-outline"
-          style={tw`text-brandGray dark:text-darkBrandGray text-lg`}
+          style={tw`text-lg text-brandGray dark:text-darkBrandGray`}
         />
       </View>
     </View>

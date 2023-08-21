@@ -19,9 +19,19 @@ export type HomeScreenType = {
   Categories: undefined
 }
 export type ExploreScreenType = {
-  ProductList: undefined
+  ProductList: {
+    ratings?: number[]
+    categories?: string[]
+    genders?: string[]
+    price?: number[]
+  }
   ProductDetails: { id: string }
-  ProductFilter: undefined
+  ProductFilter: {
+    ratings?: number[]
+    categories?: string[]
+    genders?: string[]
+    price?: number[]
+  }
 }
 export type ProductScreenType = {
   ProductList: undefined
