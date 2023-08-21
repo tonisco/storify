@@ -43,3 +43,6 @@ npx expo run:android
     - Product List
     - Product Details
     - Product Filter
+20. Due to time and bugs pertaining to the ui libraries i wanted to use i managed to implement the main core features of my assignment which is filtering, sorting and pagination.
+21. I initially tried useMemo (a react hook), to store the sorted and filtered data. it was not performant and did not re-render even when the right dependencies where added.
+22. After hours of debugging, I switched to useCallback (another react hook) to update the function which filters and sorts every time a variable it uses updates, then i added a useEffect (another react hook) to call the function any time the function updates to re-sort and re-filter
